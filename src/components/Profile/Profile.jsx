@@ -1,35 +1,36 @@
-import './Profile.css'
+// import './Profile.css'
 import PropTypes from "prop-types";
+import { WrapperCard, DescriptionOfCard, ImgUser, UserData, UserName, StatOfUser, ItemOfStat, MoreStylishItemOfStat, LabelOfStat, QuantityOfStat } from "./Profile.styled";
 
 const Profile = ({ username, tag, location, avatar, stats: { followers, views, likes } }) => {
 	return (
-		<div className="profile">
-			<div className="description">
-				<img
+		<WrapperCard>
+			<DescriptionOfCard>
+				<ImgUser
 					src={avatar}
 					alt="User avatar"
 					className="avatar"
 				/>
-				<p className="name">{username}</p>
-				<p className="tag">@{tag}</p>
-				<p className="location">{location}</p>
-			</div>
+				<UserName>{username}</UserName>
+				<UserData>@{tag}</UserData>
+				<UserData>{location}</UserData>
+			</DescriptionOfCard>
 
-			<ul className="stats">
-				<li>
-					<span className="label">Followers</span>
-					<span className="quantity">{followers}</span>
-				</li>
-				<li>
-					<span className="label">Views</span>
-					<span className="quantity">{views}</span>
-				</li>
-				<li>
-					<span className="label">Likes</span>
-					<span className="quantity">{likes}</span>
-				</li>
-			</ul>
-		</div>
+			<StatOfUser>
+				<ItemOfStat>
+					<LabelOfStat className="label">Followers</LabelOfStat>
+					<QuantityOfStat className="quantity">{followers}</QuantityOfStat>
+				</ItemOfStat>
+				<MoreStylishItemOfStat>
+					<LabelOfStat className="label">Views</LabelOfStat>
+					<QuantityOfStat className="quantity">{views}</QuantityOfStat>
+				</MoreStylishItemOfStat>
+				<ItemOfStat>
+					<LabelOfStat className="label">Likes</LabelOfStat>
+					<QuantityOfStat className="quantity">{likes}</QuantityOfStat>
+				</ItemOfStat>
+			</StatOfUser>
+		</WrapperCard>
 	)
 }
 

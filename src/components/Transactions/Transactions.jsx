@@ -1,30 +1,31 @@
-import './Transactions.css';
+// import './Transactions.css';
 import PropTypes from "prop-types";
+import { Table, TableHeading, TableData } from "./Transactions.styled";
 
-const Transactions = ({ transactions }) => {
+const Transactions = ({ props }) => {
 	return (
 		<>
-			<table className="transaction-history">
+			<Table>
 				<thead>
 					<tr className='table-row'>
-						<th className='table-head'>Type</th>
-						<th className='table-head'>Amount</th>
-						<th className='table-head'>Currency</th>
+						<TableHeading>Type</TableHeading>
+						<TableHeading>Amount</TableHeading>
+						<TableHeading>Currency</TableHeading>
 					</tr>
 				</thead>
 
 				<tbody>
-					{transactions.map(transaction => {
+					{props.map(transaction => {
 						return (
 							<tr className='table-row' key={transaction.id}>
-								<td className='table-data'>{transaction.type}</td>
-								<td className='table-data'>{transaction.amount}</td>
-								<td className='table-data'>{transaction.currency}</td>
+								<TableData>{transaction.type}</TableData>
+								<TableData>{transaction.amount}</TableData>
+								<TableData>{transaction.currency}</TableData>
 							</tr>)
 					})}
 
 				</tbody>
-			</table>
+			</Table>
 		</>
 	)
 }

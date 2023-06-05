@@ -1,7 +1,7 @@
-import Profile from './Profile';
-import Statistic from './Statistic';
-import FriendsList from './Friends';
-import Transactions from './Transactions';
+import Profile from 'components/Profile';
+import Statistic from 'components/Statistic';
+import FriendsList from 'components/Friends';
+import Transactions from 'components/Transactions';
 
 import './App.css';
 
@@ -29,8 +29,8 @@ export const App = () => {
 			<Profile {...user} />
 			<Statistic title="Statistic"
 				stats={data} />
-			<FriendsList friends={friends} />
-			<Transactions transactions={transactions} />
+			<FriendsList props={friends} />
+			<Transactions props={transactions} />
 		</>
 
 	);
